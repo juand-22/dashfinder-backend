@@ -33,16 +33,14 @@ export const createUser = async (req, res) => {
             return res.status(400).json({error: "Contraseña no puede contener espacios"})
         }
 
-        //letras raras o caracteres especiales
         if(!/^[a-zA-Z0-9_]+$/.test(username)) {
             return res.status(400).json({error: "Nombre de usuario solo puede contener letras, números y guiones bajos"})
         }
-        //letras raras o caracteres especiales
         if(!/^[a-zA-Z0-9_]+$/.test(password)) {
             return res.status(400).json({error: "Contraseña solo puede contener letras, números y guiones bajos"})
         }
 
-        const whitelistIp = ["45.224.21.68"]
+        const whitelistIp = ["1.1.1.1"]
 
 
         const ip = req.headers['x-real-ip'] || req.ip
